@@ -1,0 +1,41 @@
+push on git
+
+check Install
+1- git --version
+
+Initialize Git Repository
+2-git init
+
+Initialize Git Repository
+3-git add .
+
+4-Commit the Files
+git commit -m "Initial commit"
+
+5- Create a Repository on GitHub
+
+Go to GitHub
+
+Click New Repository
+
+Give a name (same as folder recommended)
+
+Do NOT add README or .gitignore
+
+Click Create repository
+
+git branch -M main
+git remote add origin https://github.com/gawalikhushal/smart-yoga-mat
+
+git push -u origin main
+
+
+#update save the modify code-
+
+6-git status
+
+git add .
+
+git commit -m "Describe what you changed"
+
+git push

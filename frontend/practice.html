@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practice Yoga</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1 id="poseName"></h1>
+<h3>Hold Time: <span id="holdTime"></span> sec</h3>
+
+<video id="video" width="640" height="480" autoplay muted></video>
+<canvas id="canvas" width="640" height="480"></canvas>
+
+<p id="feedback" style="font-size:22px;color:orange">
+  Waiting for pose...
+</p>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+
+<script src="js/poses.js"></script>
+<script src="js/poseEngine.js"></script>
+<script src="js/timer.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/practice.js"></script>
+
+
+</body>
+</html>

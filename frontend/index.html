@@ -2,15 +2,31 @@
 <html>
 <head>
   <title>Smart Yoga Mat</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<h1>🧘 Smart Yoga Mat</h1>
-<p class="subtitle">Choose Your Yoga Asana | अपनी योग मुद्रा चुनें</p>
+<h1>🧘 84 Classic Yoga Asanas</h1>
+<div id="poseGrid" class="grid"></div>
 
-<div class="asana-grid" id="asanaGrid"></div>
+<script src="js/poses.js"></script>
+<script>
+const grid = document.getElementById("poseGrid");
 
-<script src="index.js"></script>
+yogaPoses.forEach(pose => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${pose.image}">
+    <h3>${pose.name_en}</h3>
+    <p>${pose.name_hi}</p>
+  `;
+  card.onclick = () => {
+    location.href = `practice.html?pose=${pose.id}`;
+  };
+  grid.appendChild(card);
+});
+</script>
+
 </body>
 </html>

@@ -1,0 +1,40 @@
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #f4f9ff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+video, canvas {
+  width: 480px;
+  height: 360px;
+  margin: 10px;
+}
+
+#feedback {
+  font-size: 20px;
+  margin-top: 10px;
+}
