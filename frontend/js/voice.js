@@ -13,3 +13,4 @@ function speak(text, lang = "en-IN") {
   speechSynthesis.speak(utter);
   lastSpeech = text;
 }
+

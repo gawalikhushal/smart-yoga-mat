@@ -1,3 +1,8 @@
+function setLang(lang) {
+  localStorage.setItem("lang", lang);
+  location.reload();
+}
+
 const params = new URLSearchParams(window.location.search);
 const poseId = params.get("pose");
 
@@ -36,20 +41,23 @@ poseAI.onResults(results => {
   drawConnectors(ctx, results.poseLandmarks, POSE_CONNECTIONS, { color: "#00FF00" });
   drawLandmarks(ctx, results.poseLandmarks, { color: "#FF0000", radius: 4 });
 
-  const check = checkPose(poseId, results.poseLandmarks);
+const result = validatePose(poseId, results.poseLandmarks);
 
-feedback.innerText = `Step ${check.step || ""}: ${check.msg}`;
-feedback.style.color = check.ok ? "green" : "red";
+const lang = localStorage.getItem("lang") || "en";
 
-if (check.speak) {
-  speak(check.speak, "en-IN");   // English voice
+feedback.innerText = `Step ${result.step}: ${result.text[lang]}`;
+feedback.style.color = result.ok ? "green" : "red";
+
+if (result.speak) {
+  speak(result.speak[lang], lang === "hi" ? "hi-IN" : "en-IN");
 }
 
-if (check.ok) {
+if (result.ok) {
   startTimer(pose.holdTime);
 } else {
   resetTimer();
-  }
+}
+
 });
 
 const camera = new Camera(video, {
@@ -61,3 +69,4 @@ const camera = new Camera(video, {
 });
 
 camera.start();
+
